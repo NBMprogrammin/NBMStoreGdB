@@ -51,6 +51,6 @@ RUN npm install
 EXPOSE 80
 
 # Start Apache
-# CMD ["apache2-foreground"]
+CMD ["apache2-foreground"]
 
 CMD php artisan migrate --farce && php artisan server --host-0.0.0.0 --port=8000
