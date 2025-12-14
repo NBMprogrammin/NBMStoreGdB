@@ -10,7 +10,6 @@
         "prod": "echo '⚡ Production mode'",
         "test": "echo '🧪 No tests configured' && exit 0",
         "lint": "echo '✨ No linting needed'",
-        "deploy": "git push --force origin main",
         "production": "vite build",
         "watch": "vite build --watch",
         "serve": "vite preview --host"
