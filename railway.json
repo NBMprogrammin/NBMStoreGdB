@@ -1,0 +1,7 @@
+
+{
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "php -d memory_limit=2G /usr/bin/composer install --no-dev"
+  }
+}
