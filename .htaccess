@@ -1,0 +1,34 @@
+# ملف .htaccess
+# هذا الملف يمنع Apache من تحميل أكثر من MPM
+
+# تعطيل التواقيع على الخادم
+ServerSignature Off
+
+# تحديد MPM الذي تريد استخدامه (اختر واحدًا فقط)
+# محجوز - إذا كان خادمك يدعمه، ضعه في httpd.conf بدلاً من .htaccess
+
+# تأكد من أن mod_rewrite مفعل
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # إذا كنت تستخدم Laravel/CodeIgniter/PHP framework
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
+</IfModule>
+
+# إعدادات الأداء
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# إعدادات ذاكرة التخزين المؤقت
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>

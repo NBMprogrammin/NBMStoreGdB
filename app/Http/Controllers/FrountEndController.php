@@ -42,7 +42,6 @@ class FrountEndController extends Controller
                 'email' => 'required|string',
                 'password' => 'required|string',
             ]);
-            // $address
 
             // تنظيف البيانات
             $SmplDataLogin = strip_tags($request->email);
@@ -83,8 +82,7 @@ class FrountEndController extends Controller
 
             return response()->json([
                 'message' => 'successfuly Login For Your Accounte',
-                'data' => $AllsDataProfileNow, // الحصول على البيانات من ال response
-                // 'data' => $AllsDataProfileNow, // الحصول على البيانات من ال response
+                'data' => $AllsDataProfileNow,
                 'typAction' => 1,
                 'token' => $token
             ]);
@@ -255,13 +253,7 @@ class FrountEndController extends Controller
             $megaleBss = strip_tags($request->megaleBss);
             $gbsbss = strip_tags($request->gbsbss);
             $cantryBss = strip_tags($request->cantryBss);
-            // $SheckNameBss = ProfileUserBss::where('usernameBss', $usernameBss)->first();
-            // if($SheckNameBss) {
-            //     return response()->json([
-            //         'message' => 'This Name Besness Has One Releay Created For One User',
-            //         'data' => 7
-            //     ]);
-            // }
+            
             if($usernameBss != '') {
                 $DatToUpdateProf['usernameBss'] = $usernameBss;
             } 
@@ -718,7 +710,7 @@ class FrountEndController extends Controller
                 $snabeshateLinck = strip_tags($request->SnabeShateLinckSpm);
                 $youtubeLinck = strip_tags($request->YoutubeLinckSpm);
                 $tewayteXLinck = strip_tags($request->TewaterXlinck);
-                $instagramLinck = strip_tags($request->InstagrameLinck); //SnabeShateLinck
+                $instagramLinck = strip_tags($request->InstagrameLinck);
                 
                 $DatToUpdateProf = [];
                 if($facebookLinck != '') {
@@ -991,9 +983,7 @@ class FrountEndController extends Controller
             if($MyProfile) {
                 $categoryToSereach = strip_tags($categoryToSereach);
                 $SheckCategory = $datuser->userCategory()->where(
-                    // 'idbss', $SheckMyProfID,
                     'category', 'LIKE', $categoryToSereach. '%',
-                    // 'category' => 'LIKE' => $categoryToSereach. '%',
                 )->select('id', 'category')->latest()->paginate(10);
                 return response()->json([
                     'message' => 'Are You Search To',
