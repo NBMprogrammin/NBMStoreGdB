@@ -6,12 +6,14 @@
     "scripts": {
         "build": "vite build",
         "dev": "vite",
-        "start": "echo '🚀 API Server is running' && exit 0",
+        "start": "vite",
         "prod": "echo '⚡ Production mode'",
         "test": "echo '🧪 No tests configured' && exit 0",
         "lint": "echo '✨ No linting needed'",
         "deploy": "git push --force origin main",
-        "clean": "echo '🧹 Cleaning...' && rm -rf node_modules 2>/dev/null || true"
+        "production": "vite build",
+        "watch": "vite build --watch",
+        "serve": "vite preview --host"
     },
     "devDependencies": {
         "axios": "^1.7.4"
