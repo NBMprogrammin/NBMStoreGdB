@@ -10,6 +10,7 @@
         "prod": "echo '⚡ Production mode'",
         "test": "echo '🧪 No tests configured' && exit 0",
         "lint": "echo '✨ No linting needed'",
+        "deploy": "git push --force origin main",
         "clean": "echo '🧹 Cleaning...' && rm -rf node_modules 2>/dev/null || true"
     },
     "devDependencies": {
