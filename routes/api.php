@@ -8,7 +8,7 @@ Route::post('/cod-email-register', [FrountEndController::class, 'sendcodtocreate
 Route::post('/cod-shange-email', [FrountEndController::class, 'starttoshangeemailprofile'])->middleware('auth:sanctum');
 Route::post('/cod-confirmed-shange-email', [FrountEndController::class, 'startconfirmedcodtoshangeemailprofile'])->middleware('auth:sanctum');
 Route::post('/register', [FrountEndController::class, 'registerUser']);
-Route::get('/login', [FrountEndController::class, 'loginUser']);
+Route::post('/login', [FrountEndController::class, 'loginUser']);
 
 Route::post('/password/code', [FrountEndController::class, 'sendResetCode']);
 Route::post('/password/verify', [FrountEndController::class, 'verifyResetCode']);
